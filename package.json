@@ -1,0 +1,30 @@
+{
+  "name": "pandoc-plantuml-filter-ng",
+  "version": "0.0.5",
+  "description": "pandoc plantuml filter ng",
+  "main": "plantuml-filter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikewootc/pandoc-plantuml-filter-ng.git"
+  },
+  "dependencies": {
+    "pandoc-filter": "^0.1.3"
+  },
+  "bin": {
+    "pandoc-plantuml-filter": "plantuml-filter-bin"
+  },
+  "keywords": [
+    "pandoc",
+    "plantuml",
+    "filter"
+  ],
+  "author": "Stanislav Berkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikewootc/pandoc-plantuml-filter-ng/issues"
+  },
+  "homepage": "https://github.com/mikewootc/pandoc-plantuml-filter-ng#readme"
+}
