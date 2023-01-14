@@ -23,7 +23,7 @@ function filterPlantuml(type, value, format, meta) {
 //    var res = execSync(util.format("java -splash:no -jar \"%s\" -charset UTF-8 -pipe", plantumlPath), { input: umlText });
     var plantumlPath = path.join(__dirname, "plantuml-1.2023.0.jar");
     var res = execSync(util.format("java -splash:no -jar \"%s\" -charset UTF-8 -pipe -Itheme-mike.puml", plantumlPath), { input: umlText });
-    var tempDirName = ".temp";
+    var tempDirName = ".pandoc-plantuml-filter-temp";
     try {
         if (!fs.existsSync(tempDirName)) {
             fs.mkdirSync(tempDirName);
