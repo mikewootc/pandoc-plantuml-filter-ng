@@ -1,6 +1,6 @@
 {
   "name": "pandoc-plantuml-filter-ng",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "pandoc plantuml filter ng",
   "main": "plantuml-filter.js",
   "scripts": {
