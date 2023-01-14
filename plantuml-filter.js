@@ -23,21 +23,28 @@ function filterPlantuml(type, value, format, meta) {
     var plantumlPath = path.join(__dirname, "plantuml-1.2023.0.jar");
     var res = execSync(util.format("java -splash:no -jar \"%s\" -charset UTF-8 -pipe -Itheme-mike.puml", plantumlPath), { input: umlText });
     var tempDirName = ".temp";
-    if (!fs.existsSync(tempDirName)) {
-        fs.mkdirSync(tempDirName);
+    try {
+        if (!fs.existsSync(tempDirName)) {
+            fs.mkdirSync(tempDirName);
+        }
+
+        var fileName = util.format("%d.png", imgCounter++);
+        var filePath = path.join(tempDirName, fileName);
+        fs.writeFileSync(filePath, res);
+
+        return pandoc.Para(
+            [
+                pandoc.Image(
+                    ['', [], []],
+                    [], // Description under image
+                    [filePath, '' /* hint */])
+            ]);
+    } catch(error) {
+        logger.error('##################### plantuml-filter error:', error);
+        throw error;
+    } finally {
+        fs.rmdirSync(tempDirName);
     }
-
-    var fileName = util.format("%d.png", imgCounter++);
-    var filePath = path.join(tempDirName, fileName);
-    fs.writeFileSync(filePath, res);
-
-    return pandoc.Para(
-        [
-            pandoc.Image(
-                ['', [], []],
-                [], // Description under image
-                [filePath, '' /* hint */])
-        ]);
 }
 
 // var data = JSON.parse(json);
