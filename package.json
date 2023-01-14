@@ -11,7 +11,8 @@
     "url": "git+https://github.com/mikewootc/pandoc-plantuml-filter-ng.git"
   },
   "dependencies": {
-    "pandoc-filter": "^0.1.3"
+    "pandoc-filter": "^0.1.3",
+    "rimraf": "^4.0.4"
   },
   "bin": {
     "pandoc-plantuml-filter": "plantuml-filter-bin"

@@ -3,6 +3,7 @@ var fs = require('fs');
 var execSync = require("child_process").execSync;
 var path = require('path');
 var util = require('util');
+const { rimraf, rimrafSync, native, nativeSync } = require('rimraf')
 
 var imgCounter = 0;
 
@@ -43,7 +44,7 @@ function filterPlantuml(type, value, format, meta) {
         logger.error('##################### plantuml-filter error:', error);
         throw error;
     } finally {
-        fs.rmdirSync(tempDirName);
+        rimrafSync(tempDirName);
     }
 }
 
